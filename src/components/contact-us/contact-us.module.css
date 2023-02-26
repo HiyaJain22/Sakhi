@@ -1,12 +1,24 @@
-body{
+/* body{
+    height: 100%;
+    width: 100%;
+} */
+
+.fullPage{
+    margin-top: 100px !important;
+    color: red !important;
+    background-color: aqua !important;
+
+}
+
+/* .contactus-section{
+    margin-top: 100px !important;
     height: 950px;
     width: 100%;
-}
-.contactus-section{
-    height: 950px;
-    width: 100%;
-}
-*{
+    color: aqua !important;
+} */
+
+
+/* *{
     margin: 0;
     padding: 0;
-}
+} */

@@ -1,130 +1,126 @@
 import React, { useRef, useState } from 'react';
-// import './chat.css'
 import firebase from 'firebase/compat/app';
-import 'firebase/compat/firestore';
-import 'firebase/compat/auth';
-import 'firebase/compat/analytics';
-// import React, { useRef, useState } from 'react';
-// import './chat.module.css';
-// import firebase from 'firebase/compat/app';
 // import 'firebase/compat/firestore';
 // import 'firebase/compat/auth';
 // import 'firebase/compat/analytics';
+// import React, { useRef, useState } from 'react';
+// import './chat.module.css';
+// import firebase from 'firebase/compat/app';
+import 'firebase/compat/firestore';
+import 'firebase/compat/auth';
+import 'firebase/compat/analytics';
 
-// import { useAuthState } from 'react-firebase-hooks/auth';
-// import { useCollectionData } from 'react-firebase-hooks/firestore';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-// firebase.initializeApp({
-//   // your config
-//   apiKey: "AIzaSyBmNC6_Xxch5kq5bChSnFkirT_cpSLfDLY",
-//   authDomain: "auth-asteroid.firebaseapp.com",
-//   projectId: "auth-asteroid",
-//   storageBucket: "auth-asteroid.appspot.com",
-//   messagingSenderId: "1031146454666",
-//   appId: "1:1031146454666:web:6fb1ed0bfd867d0637f773"
-// })
+firebase.initializeApp({
+  // your config
+  apiKey: "AIzaSyBmNC6_Xxch5kq5bChSnFkirT_cpSLfDLY",
+  authDomain: "auth-asteroid.firebaseapp.com",
+  projectId: "auth-asteroid",
+  storageBucket: "auth-asteroid.appspot.com",
+  messagingSenderId: "1031146454666",
+  appId: "1:1031146454666:web:6fb1ed0bfd867d0637f773"
+})
 
-const auth = firebase.auth();
-const firestore = firebase.firestore();
 // const auth = firebase.auth();
 // const firestore = firebase.firestore();
+const auth = firebase.auth();
+const firestore = firebase.firestore();
 // const analytics = firebase.analytics();
 
 
-// function Chat() {
+function Chat() {
 
-//   const [user] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
-//   return (
-//     <div className="App">
-//       <header>
-//         <h1>⚛️🔥💬</h1>
-//         <SignOut />
-//       </header>
+  return (
+    <div className="App">
+      <header>
+        <h1>⚛️🔥💬</h1>
+        <SignOut />
+      </header>
 
-//       <section>
-//         {user ? <ChatRoom /> : <SignIn />}
-//       </section>
+      <section>
+        {user ? <ChatRoom /> : <SignIn />}
+      </section>
 
-//     </div>
-//   );
-// }
+    </div>
+  );
+}
 
-// function SignIn() {
+function SignIn() {
 
-//   const signInWithGoogle = () => {
-//     const provider = new firebase.auth.GoogleAuthProvider();
-//     auth.signInWithPopup(provider);
-//   }
+  const signInWithGoogle = () => {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    auth.signInWithPopup(provider);
+  }
 
-//   return (
-//     <>
-//       <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
-//       <p>Do not violate the community guidelines or you will be banned for life!</p>
-//     </>
-//   )
+  return (
+    <>
+      <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
+      <p>Do not violate the community guidelines or you will be banned for life!</p>
+    </>
+  )
 
-// }
+}
 
-// function SignOut() {
-//   return auth.currentUser && (
-//     <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
-//   )
-// }
-
-
-// function ChatRoom() {
-//   const dummy = useRef();
-//   const messagesRef = firestore.collection('messages');
-//   const query = messagesRef.orderBy('createdAt').limit(25);
-
-//   const [messages] = useCollectionData(query, { idField: 'id' });
-
-//   const [formValue, setFormValue] = useState('');
+function SignOut() {
+  return auth.currentUser && (
+    <button className="sign-out" onClick={() => auth.signOut()}>Sign Out</button>
+  )
+}
 
 
-//   const sendMessage = async (e) => {
-//     e.preventDefault();
+function ChatRoom() {
+  const dummy = useRef();
+  const messagesRef = firestore.collection('messages');
+  const query = messagesRef.orderBy('createdAt').limit(25);
 
-//     const { uid, photoURL } = auth.currentUser;
+  const [messages] = useCollectionData(query, { idField: 'id' });
 
-//     await messagesRef.add({
-//       text: formValue,
-//       createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-//       uid,
-//       photoURL
-//     })
+  const [formValue, setFormValue] = useState('');
 
-//     setFormValue('');
-//     dummy.current.scrollIntoView({ behavior: 'smooth' });
-//   }
 
-//   return (<>
-//     <main>
+  const sendMessage = async (e) => {
+    e.preventDefault();
 
-//       {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
+    const { uid, photoURL } = auth.currentUser;
 
-//       <span ref={dummy}></span>
+    await messagesRef.add({
+      text: formValue,
+      createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      uid,
+      photoURL
+    })
 
-//     </main>
+    setFormValue('');
+    dummy.current.scrollIntoView({ behavior: 'smooth' });
+  }
 
-//     <form onSubmit={sendMessage}>
+  return (<>
+    <main>
 
-//       <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+      {messages && messages.map(msg => <ChatMessage key={msg.id} message={msg} />)}
 
-//       <button type="submit" disabled={!formValue}>🕊️</button>
+      <span ref={dummy}></span>
 
-//     </form>
-//   </>)
-// }
+    </main>
 
+    <form onSubmit={sendMessage}>
+
+      <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="say something nice" />
+
+      <button type="submit" disabled={!formValue}>🕊️</button>
+
+    </form>
+  </>)
+}
 
 function ChatMessage(props) {
   const { text, uid} = props.message;
-// function ChatMessage(props) {
-//   const { text, uid, photoURL } = props.message;
 
-//   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
     <div className={`message ${messageClass}`}>
@@ -133,13 +129,8 @@ function ChatMessage(props) {
     </div>
   </>)
 }
-//   return (<>
-//     <div className={`message ${messageClass}`}>
-//       <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-//       <p>{text}</p>
-//     </div>
-//   </>)
-// }
 
 
-// export default Chat;
+
+
+export default Chat;

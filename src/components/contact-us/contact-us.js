@@ -1,6 +1,5 @@
 import React from 'react'
-//
-// import './contact-us.module.css'
+import styles from './contact-us.module.css'
 import NavScrollExample from '../navbar/Navbar';
 
 export default function ContactUs() {
@@ -12,10 +11,9 @@ export default function ContactUs() {
   }
 
   return (
-    
-  <div clasName="full-page">
+    <>
     <NavScrollExample />
-
+    <div clasName={styles.fullPage}>
     <section className = "contactus-section">
       <div className ="container">
         <div className ="row justify-content-center">
@@ -132,6 +130,9 @@ export default function ContactUs() {
     </section>
 
   </div>
+    </>
+    
+  
     
   )
 }
