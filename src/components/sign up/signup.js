@@ -6,11 +6,11 @@ import {auth} from '../firebase'
 
 export default function Signup() {
     const navigate = useNavigate()
-    const [values, setValues] = useState({
-        name: "",
-        email: "",
-        pass: ""
-    })
+    // const [values, setValues] = useState({
+    //     name: "",
+    //     email: "",
+    //     pass: ""
+    // })
     const emailRef = useRef()
     const passwordRef = useRef()
     const nameRef = useRef()

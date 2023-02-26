@@ -6,10 +6,10 @@ import {auth} from '../firebase'
 export default function Login() {
 
     const navigate = useNavigate()
-    const [values, setValues] = useState({
-        email: "",
-        pass: ""
-    })
+    // const [values, setValues] = useState({
+    //     email: "",
+    //     pass: ""
+    // })
     const emailRef = useRef()
     const passwordRef = useRef()
     const [errorMsg, setErrorMsg]= useState('')

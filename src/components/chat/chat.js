@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import './chat.module.css';
+// import './chat.css'
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
@@ -20,7 +20,7 @@ firebase.initializeApp({
 
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-const analytics = firebase.analytics();
+// const analytics = firebase.analytics();
 
 
 function Chat() {
@@ -112,14 +112,14 @@ function ChatRoom() {
 
 
 function ChatMessage(props) {
-  const { text, uid, photoURL } = props.message;
+  const { text, uid} = props.message;
 
   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
   return (<>
     <div className={`message ${messageClass}`}>
-      <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
-      <p>{text}</p>
+      {/* <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}  alt="Hiya ne kaand kia"/> */}
+      <p style={{color: 'black'}}>{text}</p>
     </div>
   </>)
 }

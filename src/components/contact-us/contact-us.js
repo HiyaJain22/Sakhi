@@ -1,9 +1,9 @@
 import React from 'react'
 //
-import './contact-us.module.css'
+// import './contact-us.module.css'
 import NavScrollExample from '../navbar/Navbar';
 
-export default function contactus() {
+export default function ContactUs() {
   const handleSubmit = () => {
 
   }

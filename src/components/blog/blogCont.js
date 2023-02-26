@@ -25,12 +25,12 @@ const BlogContainer = () => {
         ):(
           articles.map(({id, title, description, image_url, createdAt}) => (
           <div className='border mt-3 p-3 bg-light' key={id}>
-            <div className='row'>
+            <div className='row' style={{display: 'flex'}}>
 
             <div className='col-3'>
                 <img src = {image_url} alt = 'title' style={{height:180, width: 180}}/>
               </div>
-              <div className='col-9 ps-3'>
+              <div className='col-9 p-3'>
                 <h2>{title}</h2>
                 <p>{createdAt.toDate().toDateString()}</p>
                 <h6>{description}</h6>
