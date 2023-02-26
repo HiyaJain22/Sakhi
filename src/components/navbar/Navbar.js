@@ -32,8 +32,8 @@ function NavScrollExample() {
               </NavDropdown.Item>
             </NavDropdown> */}
             <Nav.Link href="/blog">Blog</Nav.Link>
-            <Nav.Link href="#action4">ChatWithUs</Nav.Link>
-          <Nav.Link href="#action5">Voice</Nav.Link>
+            <Nav.Link href="/chat">ChatWithUs</Nav.Link>
+          <Nav.Link href="/voice">Voice</Nav.Link>
           {/* <Nav.Link href="#action6">LogOut</Nav.Link> */}
      
           </Nav>

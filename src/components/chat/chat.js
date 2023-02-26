@@ -9,6 +9,8 @@ import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/analytics';
+import NavScrollExample from '../navbar/Navbar';
+
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -35,6 +37,8 @@ function Chat() {
   const [user] = useAuthState(auth);
 
   return (
+    <>
+    <NavScrollExample />
     <div className="App">
       <header>
         <h1>⚛️🔥💬</h1>
@@ -46,6 +50,8 @@ function Chat() {
       </section>
 
     </div>
+    </>
+    
   );
 }
 

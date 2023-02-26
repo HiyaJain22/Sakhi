@@ -1,9 +1,13 @@
 import React from "react";
 import AddArticle from "./addArticle";
 import BlogContainer from "./blogCont";
+import NavScrollExample from '../navbar/Navbar';
+
 
 const Blog = () => {
     return (
+        <>
+        <NavScrollExample />
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8">
@@ -15,6 +19,7 @@ const Blog = () => {
                     </div>
         
                 </div>
+            </>
             )
 }
 
