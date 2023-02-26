@@ -7,6 +7,8 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './components/login/login';
 import Signup from './components/sign up/signup';
 import Blog from './components/blog/blog';
+import ContactUs from './components/contact-us/contact-us';
+
 function App() {
   return (
     <>
@@ -15,7 +17,8 @@ function App() {
           <Route path="/login" element={<Login/>}/>
           <Route path="/" element={<Signup/>}/>
           <Route path="/home" element={<Home/>}/>
-          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog" element={<Blog/>} />
+          <Route path="/contact-us" element={<ContactUs/>} />
         </Routes>
       </Router>
     </>
