@@ -15,13 +15,14 @@ export default function Signup() {
     const passwordRef = useRef()
     const nameRef = useRef()
     const [errorMsg, setErrorMsg]= useState('')
-    const handleSubmission= () =>{
-        console.log(values)
 
-        createUserWithEmailAndPassword(auth, values.email, values.pass).then(async(res)=>{
+    const handleSubmission= () =>{
+        console.log(emailRef.current.value)
+
+        createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value).then(async(res)=>{
             const user = res.user
             await updateProfile(user, {
-                displayName: values.name,
+                displayName: nameRef.current.value,
             });
             console.log(user)
             navigate('/login')
@@ -44,15 +45,15 @@ export default function Signup() {
                 <Form>
                 <Form.Group id ='text'>
                         <Form.Label>Name</Form.Label>
-                        <Form.Control onChange={e => setValues((prev) => ({ ...prev, name: e.target.value}))}  type='text' ref = {nameRef} required />
+                        <Form.Control type='text' ref = {nameRef} required />
                     </Form.Group>
                     <Form.Group id ='email'>
                         <Form.Label>Email</Form.Label>
-                        <Form.Control onChange={e => setValues((prev) => ({ ...prev, email: e.target.value}))} type='email' ref = {emailRef} required />
+                        <Form.Control type='email' ref = {emailRef} required />
                     </Form.Group>
                     <Form.Group id ='password'>
                         <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={e => setValues((prev) => ({ ...prev, pass: e.target.value}))} type='password' ref = {passwordRef} required />
+                        <Form.Control type='password' ref = {passwordRef} required />
                     </Form.Group>
                     {/* <Form.Group id ='password-confirm'>
                         <Form.Label>Password Conformation</Form.Label>

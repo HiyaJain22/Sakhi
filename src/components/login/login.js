@@ -16,9 +16,8 @@ export default function Login() {
 
 
     const handleSubmission= () =>{
-        console.log(values)
 
-        signInWithEmailAndPassword(auth, values.email, values.pass).then(()=>{
+        signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value).then(()=>{
             navigate('/home')
         }).catch((err)=> {
             setErrorMsg(err.message)
@@ -37,15 +36,11 @@ export default function Login() {
                 <Form>
                     <Form.Group id ='email'>
                         <Form.Label>Email</Form.Label>
-                        <Form.Control onChange={(e) => {
-                            setValues((prev)=> ({...prev, email:e.target.value}))
-                        }} type='email' ref = {emailRef} required />
+                        <Form.Control type='email' ref = {emailRef} required />
                     </Form.Group>
                     <Form.Group id ='password'>
                         <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={(e) => {
-                            setValues((prev)=> ({...prev, pass:e.target.value}))
-                        }} type='password' ref = {passwordRef} required />
+                        <Form.Control  type='password' ref = {passwordRef} required />
                     </Form.Group>
                     <Button type="button" onClick={handleSubmission} className='w-100 mt-2'>Log in
                     </Button>
