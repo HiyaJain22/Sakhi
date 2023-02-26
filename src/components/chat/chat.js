@@ -1,18 +1,15 @@
-<<<<<<< Updated upstream
 import React, { useRef, useState } from 'react';
 // import './chat.css'
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/analytics';
-=======
 // import React, { useRef, useState } from 'react';
 // import './chat.module.css';
 // import firebase from 'firebase/compat/app';
 // import 'firebase/compat/firestore';
 // import 'firebase/compat/auth';
 // import 'firebase/compat/analytics';
->>>>>>> Stashed changes
 
 // import { useAuthState } from 'react-firebase-hooks/auth';
 // import { useCollectionData } from 'react-firebase-hooks/firestore';
@@ -27,13 +24,10 @@ import 'firebase/compat/analytics';
 //   appId: "1:1031146454666:web:6fb1ed0bfd867d0637f773"
 // })
 
-<<<<<<< Updated upstream
 const auth = firebase.auth();
 const firestore = firebase.firestore();
-=======
 // const auth = firebase.auth();
 // const firestore = firebase.firestore();
->>>>>>> Stashed changes
 // const analytics = firebase.analytics();
 
 
@@ -125,17 +119,13 @@ const firestore = firebase.firestore();
 // }
 
 
-<<<<<<< Updated upstream
 function ChatMessage(props) {
   const { text, uid} = props.message;
-=======
 // function ChatMessage(props) {
 //   const { text, uid, photoURL } = props.message;
->>>>>>> Stashed changes
 
 //   const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
 
-<<<<<<< Updated upstream
   return (<>
     <div className={`message ${messageClass}`}>
       {/* <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}  alt="Hiya ne kaand kia"/> */}
@@ -143,7 +133,6 @@ function ChatMessage(props) {
     </div>
   </>)
 }
-=======
 //   return (<>
 //     <div className={`message ${messageClass}`}>
 //       <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
@@ -151,7 +140,6 @@ function ChatMessage(props) {
 //     </div>
 //   </>)
 // }
->>>>>>> Stashed changes
 
 
 // export default Chat;
