@@ -2,12 +2,14 @@ import React from "react";
 import AddArticle from "./addArticle";
 import BlogContainer from "./blogCont";
 import NavScrollExample from '../navbar/Navbar';
+import AnimatedPage from "../Animate/Animate";
 
 
 const Blog = () => {
     return (
         <>
         <NavScrollExample />
+        <AnimatedPage>
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8">
@@ -19,6 +21,7 @@ const Blog = () => {
                     </div>
         
                 </div>
+                </AnimatedPage>
             </>
             )
 }

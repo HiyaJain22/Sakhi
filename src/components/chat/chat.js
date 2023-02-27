@@ -14,6 +14,7 @@ import NavScrollExample from '../navbar/Navbar';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
+import AnimatedPage from '../Animate/Animate';
 
 firebase.initializeApp({
   // your config
@@ -38,7 +39,9 @@ function Chat() {
 
   return (
     <>
+    
     <NavScrollExample />
+    <AnimatedPage>
     <div className="App">
       <header>
         <h1>⚛️🔥💬</h1>
@@ -50,6 +53,7 @@ function Chat() {
       </section>
 
     </div>
+    </AnimatedPage>
     </>
     
   );

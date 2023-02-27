@@ -3,6 +3,7 @@ import {Card, Form, Button, Container} from 'react-bootstrap'
 import { Link, useNavigate } from 'react-router-dom'
 import{createUserWithEmailAndPassword, updateProfile} from 'firebase/auth'
 import {auth} from '../firebase'
+import AnimatedPage from '../Animate/Animate'
 
 export default function Signup() {
     const navigate = useNavigate()
@@ -35,6 +36,7 @@ export default function Signup() {
     
   return (
     <>
+    <AnimatedPage>
     <Container className="d-flex align-items-center justify-content-center" style={{minHeight: '100vh'}}>
         <div className='w-100' style={{maxWidth: '400px'}}>
         <Card>
@@ -70,6 +72,7 @@ export default function Signup() {
         </div>
         </div>
         </Container>
+        </AnimatedPage>
     </>
   )
 }

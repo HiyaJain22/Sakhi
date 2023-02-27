@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './contact-us.module.css'
 import NavScrollExample from '../navbar/Navbar';
+import AnimatedPage from '../Animate/Animate';
 
 export default function ContactUs() {
   const handleSubmit = () => {
@@ -12,8 +13,10 @@ export default function ContactUs() {
 
   return (
     <>
+
     <NavScrollExample />
     <div clasName={styles.fullPage}>
+    <AnimatedPage>
     <section className = "contactus-section">
       <div className ="container">
         <div className ="row justify-content-center">
@@ -128,8 +131,9 @@ export default function ContactUs() {
         </div>
       </div>
     </section>
-
+    </AnimatedPage>
   </div>
+
     </>
     
   
